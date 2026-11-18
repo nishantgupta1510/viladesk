@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gate Kiosk - Shree Ram Enclave</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .pulse-ring {
+            animation: pulse-ring 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between p-4">
+
+    <!-- Header -->
+    <header class="text-center py-4 border-b border-slate-800">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-slate-900 border border-slate-700 rounded-full text-xs text-emerald-400 font-semibold mb-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            स्वचालित गेट कियोस्क (Automated Gate Kiosk)
+        </div>
+        <h1 class="text-xl font-extrabold text-white" id="kioskSocietyName">Defined World City</h1>
+        <p class="text-xs text-slate-400" id="kioskLocalityName">Narsinghpura, Ajmer Road, NH-8, Jaipur</p>
+    </header>
+
+    <!-- Content Card -->
+    <main class="max-w-md mx-auto w-full my-auto py-4">
+
+        <!-- Form State: Request Entry -->
+        <div id="cardForm" class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-2xl space-y-4">
+            <div>
+                <h2 class="text-base font-bold text-white">डिजिटल गेट एंट्री (Request Entry)</h2>
+                <p class="text-xs text-slate-400">निवासी की अनुमति मिलते ही गेट खुल जाएगा।<br/>(Gate opens automatically upon resident approval).</p>
+            </div>
+
+            <!-- Target Plot Selector -->
+            <div>
+                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                    1. जाने का प्लॉट नंबर (Target Plot):
+                </label>
+                <select id="selectPlot" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-semibold">
+                    <option value="">-- चुनें (Select Plot Number) --</option>
+                    <!-- Injected via JS -->
+                </select>
+            </div>
+
+            <!-- Visitor Phone -->
+            <div>
+                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5 flex justify-between">
+                    <span>2. आपका मोबाइल नंबर (Your Mobile No) *</span>
+                    <span class="text-[10px] text-rose-400 font-bold uppercase">अनिवार्य / Mandatory</span>
+                </label>
+                <input id="inputPhone" type="tel" maxlength="10" minlength="10" required placeholder="10-digit Mobile Number (अनिवार्य / Mandatory)" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-mono">
+            </div>
+
+            <!-- Purpose Category -->
+            <div>
+                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                    3. आने का प्रकार (Purpose):
+                </label>
+                <div class="grid grid-cols-2 gap-2">
+                    <button type="button" onclick="selectType('delivery', 'Delivery / Parcel', this)" class="type-btn p-3 rounded-xl bg-slate-800 border border-slate-700 text-left hover:border-emerald-500 active:scale-95 transition-all ring-2 ring-emerald-500 bg-emerald-950/40">
+                        <span class="text-lg">📦</span>
+                        <div class="text-xs font-bold mt-1">Delivery / पार्सल</div>
+                        <div class="text-[10px] text-slate-400">Swiggy / Amazon / Zomato</div>
+                    </button>
+                    <button type="button" onclick="selectType('guest', 'Guest / Visitor', this)" class="type-btn p-3 rounded-xl bg-slate-800 border border-slate-700 text-left hover:border-emerald-500 active:scale-95 transition-all">
+                        <span class="text-lg">👋</span>
+                        <div class="text-xs font-bold mt-1">Guest / मेहमान</div>
+                        <div class="text-[10px] text-slate-400">Visiting family / friend</div>
+                    </button>
+                    <button type="button" onclick="selectType('cab', 'Cab / Taxi', this)" class="type-btn p-3 rounded-xl bg-slate-800 border border-slate-700 text-left hover:border-emerald-500 active:scale-95 transition-all">
+                        <span class="text-lg">🚕</span>
+                        <div class="text-xs font-bold mt-1">Cab / टैक्सी</div>
+                        <div class="text-[10px] text-slate-400">Ola / Uber pickup/drop</div>
+                    </button>
+                    <button type="button" onclick="selectType('service', 'Service / Repair', this)" class="type-btn p-3 rounded-xl bg-slate-800 border border-slate-700 text-left hover:border-emerald-500 active:scale-95 transition-all">
+                        <span class="text-lg">🔧</span>
+                        <div class="text-xs font-bold mt-1">Service / सर्विस</div>
+                        <div class="text-[10px] text-slate-400">Plumber / Electrician</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button id="btnRequestEntry" onclick="requestEntry()" class="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold rounded-xl text-base shadow-xl active:scale-98 transition-all flex items-center justify-center gap-2">
+                <span>घंटी बजाएं (Ring Resident via WhatsApp)</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+
+            <!-- Call Guard Room Button (Emergency / Assistance) -->
+            <div class="pt-2 border-t border-slate-800 text-center">
+                <a id="btnCallGuardForm" href="tel:8947051629" class="w-full py-3 bg-slate-800/90 hover:bg-slate-700 text-amber-400 font-bold rounded-xl border border-amber-500/30 flex items-center justify-center gap-2 text-xs shadow transition-all active:scale-95">
+                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z"/></svg>
+                    <span>📞 गार्ड रूम को कॉल करें (Call Guard Room)</span>
+                </a>
+                <span class="text-[10px] text-slate-500 mt-1 block">समस्या होने पर सीधे सुरक्षा गार्ड से बात करें</span>
+            </div>
+        </div>
+
+        <!-- State 2: Waiting for Resident Approval (Pulsing Radar) -->
+        <div id="cardWaiting" class="hidden bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl text-center space-y-5">
+            <div class="w-20 h-20 mx-auto rounded-full bg-emerald-500/20 flex items-center justify-center pulse-ring">
+                <span class="text-3xl animate-bounce">📱</span>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-white">निवासी को WhatsApp सूचना भेजी गई है</h3>
+                <p class="text-xs text-slate-400 mt-1">Notified Villa <span id="waitPlotNum" class="text-emerald-400 font-bold"></span> resident. Waiting for approval...</p>
+            </div>
+            <div class="bg-slate-800/80 rounded-xl p-3 text-xs text-slate-300">
+                <p>निवासी अपने मोबाइल पर <strong>"Allow Entry"</strong> दबाते ही गेट स्वतः खुल जाएगा।</p>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-xs text-slate-400">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                <span>सत्यापन जारी है (Waiting: <span id="waitTimer">0</span>s)...</span>
+            </div>
+            
+            <!-- Fallback to Call Guard if Resident is Busy -->
+            <div class="pt-2 border-t border-slate-800">
+                <a id="btnCallGuardWait" href="tel:8947051629" class="w-full py-2.5 bg-amber-950/40 hover:bg-amber-950/60 text-amber-300 font-bold rounded-xl border border-amber-500/40 flex items-center justify-center gap-2 text-xs transition-all active:scale-95">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z"/></svg>
+                    <span>निवासी जवाब नहीं दे रहे? गार्ड को कॉल करें</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- State 3: Approved & Gate Unlocked -->
+        <div id="cardApproved" class="hidden bg-emerald-950 border-2 border-emerald-500 rounded-2xl p-6 shadow-2xl text-center space-y-4">
+            <div class="w-20 h-20 mx-auto rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-4xl shadow-lg">
+                ✓
+            </div>
+            <div>
+                <h3 class="text-2xl font-black text-emerald-400">प्रवेश स्वीकृत! (Gate Unlocked)</h3>
+                <p class="text-xs text-slate-200 mt-1">Plot <span id="apprPlotNum" class="font-bold"></span> resident approved your entry.</p>
+            </div>
+            <div class="bg-emerald-900/40 border border-emerald-500/40 rounded-xl p-4 text-emerald-200 text-sm font-semibold">
+                🚪 बूम बैरियर / गेट 60 सेकंड के लिए खुल गया है। कृपया अंदर प्रवेश करें।<br/>
+                <span class="text-xs text-emerald-400/80">(Gate relay activated. Enter safely).</span>
+            </div>
+        </div>
+
+        <!-- State 4: Denied -->
+        <div id="cardDenied" class="hidden bg-rose-950 border-2 border-rose-500 rounded-2xl p-6 shadow-2xl text-center space-y-4">
+            <div class="w-16 h-16 mx-auto rounded-full bg-rose-500 text-white flex items-center justify-center text-3xl">
+                ✕
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-rose-400">प्रवेश अस्वीकार (Entry Denied)</h3>
+                <p class="text-xs text-slate-300 mt-1">निवासी ने इस समय प्रवेश की अनुमति नहीं दी है।</p>
+            </div>
+            <button onclick="location.reload()" class="px-4 py-2 bg-slate-800 text-slate-200 rounded-xl text-xs font-semibold">
+                वापस जाएं (Go Back)
+            </button>
+        </div>
+
+        <!-- State 5: Leave at Gate (Package / Delivery Drop) -->
+        <div id="cardLeaveGate" class="hidden bg-amber-950/90 border-2 border-amber-500 rounded-2xl p-6 shadow-2xl text-center space-y-4">
+            <div class="w-20 h-20 mx-auto rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-4xl shadow-lg">
+                📦
+            </div>
+            <div>
+                <h3 class="text-2xl font-black text-amber-400">पार्सल गेट पर छोड़ें</h3>
+                <h4 class="text-base font-bold text-slate-100">Leave Package at Gate Post</h4>
+                <p class="text-xs text-slate-300 mt-2">
+                    Villa Plot <span id="leavePlotNum" class="font-bold text-amber-300"></span> के निवासी ने पार्सल को गेट/सुरक्षा गार्ड के पास रखने का निर्देश दिया है।
+                </p>
+            </div>
+            <div class="bg-amber-900/40 border border-amber-500/40 rounded-xl p-3.5 text-amber-200 text-xs font-semibold">
+                ⚠️ आपको सोसाइटी के अंदर जाने की अनुमति नहीं है।<br/>
+                कृपया पार्सल गेट केबिन / पार्सल बॉक्स में रखें और निकलें।<br/>
+                <span class="text-[11px] text-amber-300/80">(Please deposit package at guard cabin and depart).</span>
+            </div>
+            <button onclick="location.reload()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition-all shadow">
+                नया आगंतुक (New Check-in)
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs text-slate-500 py-2">
+        Powered by <strong class="text-slate-400">VilaDesk</strong> • Smart Micro-Township Security
+    </footer>
+
+    <script>
+        let selectedCategory = 'delivery';
+        let selectedCompany = 'Delivery / Parcel';
+        let pollTimer = null;
+        let secondsWaiting = 0;
+
+        function selectType(cat, comp, el) {
+            selectedCategory = cat;
+            selectedCompany = comp;
+            document.querySelectorAll('.type-btn').forEach(b => {
+                b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-950/40');
+            });
+            el.classList.add('ring-2', 'ring-emerald-500', 'bg-emerald-950/40');
+        }
+
+        async function loadPlots() {
+            try {
+                const res = await fetch('/api/plots');
+                const data = await res.json();
+                if (data.success) {
+                    const sel = document.getElementById('selectPlot');
+                    data.plots.forEach(p => {
+                        const opt = document.createElement('option');
+                        opt.value = p.plot_number;
+                        const label = p.plot_type === 'occupied_villa' 
+                            ? `Plot ${p.plot_number} (${p.active_contact === 'tenant' ? p.tenant_name : p.owner_name})`
+                            : `Plot ${p.plot_number} (${p.plot_type.replace('_', ' ')})`;
+                        opt.textContent = label;
+                        sel.appendChild(opt);
+                    });
+                }
+            } catch(e) {}
+        }
+
+        async function requestEntry() {
+            const plot = document.getElementById('selectPlot').value;
+            const phone = document.getElementById('inputPhone').value.trim().replace(/\D/g, '');
+
+            if (!plot) {
+                alert("कृपया विला / प्लॉट नंबर चुनें (Please select plot number)");
+                document.getElementById('selectPlot').focus();
+                return;
+            }
+
+            if (!phone || phone.length !== 10) {
+                alert("सुरक्षा कारणों से आगंतुक का 10-अंकों का वैध मोबाइल नंबर दर्ज करना अनिवार्य है।\n(Valid 10-digit visitor mobile number is strictly mandatory for security).");
+                const phoneInput = document.getElementById('inputPhone');
+                phoneInput.focus();
+                phoneInput.classList.add('ring-2', 'ring-rose-500', 'border-rose-500');
+                return;
+            }
+
+            const btn = document.getElementById('btnRequestEntry');
+            btn.disabled = true;
+
+            try {
+                const res = await fetch('/api/visitors/request', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        plot_number: plot,
+                        visitor_name: `${selectedCompany}`,
+                        visitor_phone: phone,
+                        visitor_type: selectedCategory,
+                        service_company: selectedCompany,
+                        entry_channel: 'night_qr_kiosk'
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    showWaitingState(data.visitor_id, plot);
+                } else {
+                    alert(data.error || "Error creating request");
+                    btn.disabled = false;
+                }
+            } catch(e) {
+                alert("Network connection error");
+                btn.disabled = false;
+            }
+        }
+
+        function showWaitingState(visitorId, plotNum) {
+            document.getElementById('cardForm').classList.add('hidden');
+            document.getElementById('cardWaiting').classList.remove('hidden');
+            document.getElementById('waitPlotNum').textContent = plotNum;
+
+            secondsWaiting = 0;
+            const secEl = document.getElementById('waitTimer');
+            const timerInterval = setInterval(() => {
+                secondsWaiting++;
+                secEl.textContent = secondsWaiting;
+            }, 1000);
+
+            pollTimer = setInterval(async () => {
+                try {
+                    const res = await fetch(`/api/visitors/status/${visitorId}`);
+                    const data = await res.json();
+                    if (data.success && data.visitor) {
+                        const status = data.visitor.status;
+                        const source = data.visitor.approval_source || '';
+
+                        if (status === 'inside' || status === 'approved') {
+                            clearInterval(pollTimer);
+                            clearInterval(timerInterval);
+                            document.getElementById('cardWaiting').classList.add('hidden');
+                            document.getElementById('cardApproved').classList.remove('hidden');
+                            document.getElementById('apprPlotNum').textContent = plotNum;
+                        } else if (status === 'denied') {
+                            clearInterval(pollTimer);
+                            clearInterval(timerInterval);
+                            document.getElementById('cardWaiting').classList.add('hidden');
+                            document.getElementById('cardDenied').classList.remove('hidden');
+                        } else if (status === 'leave_at_gate' || (status === 'exited' && source.includes('leave'))) {
+                            clearInterval(pollTimer);
+                            clearInterval(timerInterval);
+                            document.getElementById('cardWaiting').classList.add('hidden');
+                            document.getElementById('cardLeaveGate').classList.remove('hidden');
+                            document.getElementById('leavePlotNum').textContent = plotNum;
+                        }
+                    }
+                } catch(e) {}
+            }, 1500);
+        }
+
+        window.onload = loadPlots;
+    </script>
+</body>
+</html>

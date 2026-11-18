@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>Printable Gate Board - VilaDesk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .hindi { font-family: 'Tiro Devanagari Hindi', serif; }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; padding: 0 !important; }
+            .print-card { border: 4px solid #000 !important; box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-200 min-h-screen p-6 flex flex-col items-center justify-center">
+
+    <!-- Print Action Bar -->
+    <div class="no-print mb-6 flex items-center gap-4 bg-white p-3 rounded-2xl shadow-lg border border-slate-300">
+        <button onclick="window.print()" class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm rounded-xl shadow-md flex items-center gap-2">
+            🖨️ इस बोर्ड को प्रिंट करें (Print Gate Sign)
+        </button>
+        <span class="text-xs text-slate-500">A4 या Sunboard/Acrylic शीट पर कलर प्रिंट कराएं।</span>
+    </div>
+
+    <!-- The Weatherproof Signboard Mockup (Standard 12x18 / A4 Ratio) -->
+    <div class="print-card bg-white text-slate-950 w-full max-w-xl border-4 border-slate-900 rounded-3xl p-8 shadow-2xl flex flex-col items-center text-center space-y-6">
+        
+        <!-- Header -->
+        <div class="border-b-4 border-slate-900 pb-4 w-full">
+            <h1 class="text-3xl font-black tracking-tight text-slate-950 uppercase" id="signSocietyNameHindi">
+                डिफ़ाइन्ड वर्ल्ड सिटी
+            </h1>
+            <h2 class="text-xl font-extrabold text-slate-700 tracking-wider" id="signSocietyName">
+                DEFINED WORLD CITY
+            </h2>
+            <p class="text-xs font-bold text-emerald-800 uppercase tracking-widest mt-1" id="signLocality">
+                Narsinghpura, Ajmer Road, NH-8, Jaipur
+            </p>
+        </div>
+
+        <!-- Title Badge -->
+        <div class="bg-slate-950 text-white px-6 py-2 rounded-full text-base font-extrabold uppercase tracking-wide flex items-center gap-2 shadow">
+            <span>🚪 स्वचालित गेट एंट्री / SMART GATE ACCESS</span>
+        </div>
+
+        <!-- The QR Code Box -->
+        <div class="bg-white p-4 rounded-3xl border-4 border-emerald-600 shadow-xl inline-block">
+            <div id="qrcode" class="flex justify-center"></div>
+        </div>
+
+        <p class="text-sm font-black text-slate-900 uppercase tracking-wider">
+            कैमरे से स्कैन करें (Scan with Phone Camera)
+        </p>
+
+        <!-- 3-Step Clear Visual Instructions -->
+        <div class="grid grid-cols-3 gap-3 w-full text-left bg-slate-100 p-4 rounded-2xl border-2 border-slate-300">
+            <div class="space-y-1">
+                <div class="w-7 h-7 rounded-full bg-slate-900 text-white font-black text-xs flex items-center justify-center">1</div>
+                <p class="text-xs font-bold text-slate-900">QR स्कैन करें</p>
+                <p class="text-[10px] text-slate-600">Scan QR Code with Google Lens or Camera</p>
+            </div>
+            <div class="space-y-1">
+                <div class="w-7 h-7 rounded-full bg-slate-900 text-white font-black text-xs flex items-center justify-center">2</div>
+                <p class="text-xs font-bold text-slate-900">विला नंबर चुनें</p>
+                <p class="text-[10px] text-slate-600">Select target Plot/Villa Number</p>
+            </div>
+            <div class="space-y-1">
+                <div class="w-7 h-7 rounded-full bg-slate-900 text-white font-black text-xs flex items-center justify-center">3</div>
+                <p class="text-xs font-bold text-slate-900">WhatsApp अप्रूवल</p>
+                <p class="text-[10px] text-slate-600">Resident approves -> Gate clears</p>
+            </div>
+        </div>
+
+        <!-- Footer Tagline -->
+        <div class="w-full pt-2 border-t-2 border-slate-200 text-xs text-slate-600 font-bold flex justify-between items-center">
+            <span>🛡️ सुरक्षा जांच आवश्यक</span>
+            <span class="text-emerald-700">गार्ड उपलब्ध न होने पर भी 24x7 सक्रिय</span>
+            <span>VilaDesk</span>
+        </div>
+
+    </div>
+
+    <script>
+        async function init() {
+            try {
+                const res = await fetch('/api/config');
+                const data = await res.json();
+                const baseUrl = data.config.public_base_url || window.location.origin;
+                const kioskUrl = `${baseUrl}/kiosk`;
+
+                new QRCode(document.getElementById("qrcode"), {
+                    text: kioskUrl,
+                    width: 220,
+                    height: 220,
+                    colorDark : "#022c22",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+            } catch(e) {
+                new QRCode(document.getElementById("qrcode"), {
+                    text: window.location.origin + "/kiosk",
+                    width: 220,
+                    height: 220
+                });
+            }
+        }
+        window.onload = init;
+    </script>
+</body>
+</html>

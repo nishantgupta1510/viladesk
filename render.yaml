@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: viladesk
+    env: python
+    region: singapore
+    plan: free
+    buildCommand: pip install -r requirements.txt && python generate_proposal_deck.py VilaDesk_Builder_Proposal_Deck.pptx
+    startCommand: python server.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.6
+      - key: WHATSAPP_VERIFY_TOKEN
+        value: viladesk_secret_verify_token_2026
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        value: "1450505744813244"

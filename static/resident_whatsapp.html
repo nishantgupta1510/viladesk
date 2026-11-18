@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident WhatsApp Simulator - VilaDesk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .wa-bg {
+            background-color: #0b141a;
+            background-image: radial-gradient(#1f2c34 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex items-center justify-center p-2 sm:p-4">
+
+    <!-- WhatsApp Device Mockup -->
+    <div class="w-full max-w-md bg-[#111b21] rounded-3xl overflow-hidden shadow-2xl border border-slate-700 flex flex-col h-[90vh]">
+        
+        <!-- WhatsApp Header -->
+        <header class="bg-[#202c33] px-4 py-3 flex items-center justify-between border-b border-slate-700/60 shadow">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white shadow">
+                    VD
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold text-white flex items-center gap-1.5">
+                        <span>VilaDesk Gate Bot</span>
+                        <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    </h2>
+                    <p class="text-[11px] text-emerald-400">Official Society Security Bot</p>
+                </div>
+            </div>
+            <!-- Villa Switcher & Call Guard -->
+            <div class="flex items-center gap-2">
+                <a href="tel:8947051629" class="px-2.5 py-1 rounded-full bg-amber-950/50 hover:bg-amber-950 border border-amber-500/40 text-amber-300 text-[11px] font-bold flex items-center gap-1 shadow">
+                    <span>📞 Guard</span>
+                </a>
+                <div class="flex items-center gap-1.5 bg-[#111b21] px-2 py-1 rounded-full border border-slate-700">
+                    <span class="text-[10px] text-slate-400">Villa:</span>
+                    <select id="residentPlotSelect" onchange="loadFeed()" class="bg-transparent text-xs text-emerald-400 font-bold focus:outline-none">
+                        <!-- Populated via JS -->
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Message Stream Area -->
+        <div id="chatStream" class="flex-1 wa-bg p-3 overflow-y-auto space-y-3">
+            <!-- Intro System Notice -->
+            <div class="flex justify-center">
+                <span class="bg-[#182229] text-amber-300 text-[11px] px-3 py-1 rounded-lg shadow border border-slate-700 text-center">
+                    🔒 Messages are end-to-end encrypted • Defined World City Gate Server
+                </span>
+            </div>
+
+            <!-- Dynamic Messages will appear here -->
+            <div id="messagesContainer" class="space-y-3"></div>
+        </div>
+
+        <!-- Pre-approved Pass Generator Tool Drawer (Bottom) -->
+        <div class="bg-[#202c33] border-t border-slate-700/80 p-3">
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold text-slate-300">मेहमान पास बनाएं (Create Guest Pass PIN):</span>
+                <span id="activePassDisplay" class="text-xs font-mono font-bold text-emerald-400"></span>
+            </div>
+            <div class="flex gap-2">
+                <input id="guestNameInput" type="text" placeholder="Guest Name (e.g. Rohit)" class="flex-1 bg-[#111b21] border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500">
+                <button onclick="generatePass()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs shadow active:scale-95 transition-all">
+                    4-डिजिट PIN
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let currentPlot = "79";
+
+        async function initPlotSelector() {
+            try {
+                const res = await fetch('/api/plots');
+                const data = await res.json();
+                if (data.success) {
+                    const sel = document.getElementById('residentPlotSelect');
+                    data.plots.forEach(p => {
+                        const opt = document.createElement('option');
+                        opt.value = p.plot_number;
+                        opt.textContent = `P-${p.plot_number} (${p.active_contact === 'tenant' ? p.tenant_name : p.owner_name})`;
+                        if (p.plot_number === "79") opt.selected = true;
+                        sel.appendChild(opt);
+                    });
+                    loadFeed();
+                }
+            } catch(e) {}
+        }
+
+        async function loadFeed() {
+            currentPlot = document.getElementById('residentPlotSelect').value || "14";
+            try {
+                const res = await fetch(`/api/whatsapp/feed?plot_number=${currentPlot}`);
+                const data = await res.json();
+                const container = document.getElementById('messagesContainer');
+                
+                if (!data.success || data.pending_notifications.length === 0) {
+                    container.innerHTML = `
+                        <div class="p-6 text-center text-slate-500 text-xs">
+                            गेट से कोई नया पेंडिंग अलर्ट नहीं है।<br/>(No pending visitor alerts for Plot ${currentPlot})<br/>
+                            <span class="text-[11px] text-slate-400 mt-2 block">Tip: Guard App या Kiosk से एंट्री भेजें और यहाँ लाइव देखें!</span>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = data.pending_notifications.map(n => `
+                    <div class="bg-[#202c33] border border-slate-700/80 rounded-2xl p-4 shadow-xl max-w-sm mr-auto text-slate-100 space-y-3">
+                        <div class="flex items-center justify-between border-b border-slate-700/60 pb-2">
+                            <span class="text-xs font-bold text-emerald-400 flex items-center gap-1">
+                                🔔 गेट से सूचना (Visitor at Gate)
+                            </span>
+                            <span class="text-[10px] text-slate-400">${n.created_at ? n.created_at.split(' ')[1] : 'Just now'}</span>
+                        </div>
+                        <div class="text-xs space-y-1">
+                            <p><strong>आगंतुक:</strong> ${n.visitor_name} (${n.service_company || n.visitor_type})</p>
+                            <p><strong>प्लट:</strong> Villa Plot ${n.plot_number} (${n.street_name})</p>
+                            ${n.vehicle_number ? `<p><strong>गाड़ी नं:</strong> ${n.vehicle_number}</p>` : ''}
+                            <p class="text-[11px] text-slate-400 italic">क्या आप इन्हें अंदर आने की अनुमति देते हैं?</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-1 border-t border-slate-700/60">
+                            <button onclick="respondAction('${n.id}', 'approve')" class="py-2.5 bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-bold text-xs rounded-xl shadow flex items-center justify-center gap-1">
+                                <span>✓ Allow Entry</span>
+                            </button>
+                            <button onclick="respondAction('${n.id}', 'deny')" class="py-2.5 bg-rose-600 hover:bg-rose-500 active:scale-95 text-white font-bold text-xs rounded-xl shadow flex items-center justify-center gap-1">
+                                <span>✕ Deny</span>
+                            </button>
+                        </div>
+                        <button onclick="respondAction('${n.id}', 'leave_at_gate')" class="w-full py-2 bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-300 font-semibold text-[11px] rounded-lg border border-slate-700">
+                            📦 पार्सल गेट पर छोड़ें (Leave at Gate)
+                        </button>
+                    </div>
+                `).join('');
+            } catch(e) {}
+        }
+
+        async function respondAction(visId, action) {
+            try {
+                const res = await fetch('/api/visitors/action', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        visitor_id: visId,
+                        action: action,
+                        source: 'whatsapp_button'
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    loadFeed();
+                }
+            } catch(e) {}
+        }
+
+        async function generatePass() {
+            const guestName = document.getElementById('guestNameInput').value.trim() || 'Guest';
+            try {
+                const res = await fetch('/api/passes/create', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        plot_number: currentPlot,
+                        guest_name: guestName,
+                        valid_hours: 8
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    document.getElementById('activePassDisplay').textContent = `Pass: ${data.pass_code}`;
+                    alert(`✅ Guest Pass Generated!\n\nCode: ${data.pass_code}\nValid for Plot ${currentPlot}.\n\nShare text copied to clipboard!`);
+                    navigator.clipboard.writeText(data.share_text);
+                    document.getElementById('guestNameInput').value = '';
+                }
+            } catch(e) {}
+        }
+
+        window.onload = () => {
+            initPlotSelector();
+            setInterval(loadFeed, 2000);
+        };
+    </script>
+</body>
+</html>

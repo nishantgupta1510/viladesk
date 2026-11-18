@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+watchdog.log
+LIVE_DEMO_URL.txt
+.DS_Store
+config.json

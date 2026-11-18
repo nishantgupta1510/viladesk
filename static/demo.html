@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VilaDesk • 24x7 Live Interactive Demo Environment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-light { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(16px); }
+        .device-shadow { box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.9); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-emerald-50/30 to-teal-50/20 text-slate-800 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+
+    <!-- Top Navigation Header (Light, Clean, Positive) -->
+    <header class="sticky top-0 z-50 glass-light border-b border-slate-200/80 px-4 md:px-8 py-3.5 flex items-center justify-between shadow-sm">
+        <div class="flex items-center gap-3">
+            <a href="/demo" class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-md shadow-emerald-500/25">
+                    V
+                </div>
+                <div>
+                    <span class="text-slate-900 font-extrabold text-base tracking-tight block leading-tight">VilaDesk</span>
+                    <span class="text-[10px] text-emerald-700 font-bold uppercase tracking-wider">Live 24x7 Demo Hub</span>
+                </div>
+            </a>
+            <div class="hidden lg:flex items-center gap-2 ml-4 pl-4 border-l border-slate-200">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-xs text-slate-600 font-medium">Defined World City, Jaipur (25 Plots Live)</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2 md:gap-3">
+            <a href="/proposal" class="px-3.5 py-1.5 bg-white hover:bg-slate-50 text-teal-700 border border-teal-200 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all">
+                <span>📑 Proposal Deck (PPT)</span>
+            </a>
+            <a href="/download/proposal-deck" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md shadow-emerald-600/20 transition-all active:scale-95">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span class="hidden sm:inline">Download PPTX</span>
+            </a>
+            <a href="/admin" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold transition-all">
+                <span>Admin Map</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 max-w-7xl mx-auto w-full px-4 md:px-8 py-6 space-y-6">
+
+        <!-- Hero Section & Status Banner (Positive, High-Vibe Fresh Mint) -->
+        <div class="bg-gradient-to-r from-emerald-50/90 via-teal-50/40 to-white border-2 border-emerald-200/80 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-sm">
+            <div class="max-w-3xl space-y-3 relative z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-emerald-300 text-emerald-700 text-xs font-bold shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span>☀️ 24x7 Persistent Interactive Demo Mode Active</span>
+                </div>
+                <h1 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+                    Experience VilaDesk Live in Action
+                </h1>
+                <p class="text-sm md:text-base text-slate-600 leading-relaxed">
+                    Test the complete micro-township gate experience right on this page: see the <strong>Guard Cabin Tablet</strong> on the left, and watch the <strong>Resident WhatsApp Phone</strong> receive instant interactive approval buttons on the right.
+                </p>
+            </div>
+
+            <!-- Quick 1-Click Interactive Scenarios (Bright Cards) -->
+            <div class="mt-6 pt-6 border-t border-emerald-200/60">
+                <p class="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3">
+                    ⚡ 1-Click Interactive Test Scenarios (Click to Trigger Live):
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+                    <button onclick="triggerScenario('swiggy')" class="scenario-btn p-3.5 bg-white hover:bg-emerald-50/80 border border-slate-200 hover:border-emerald-400 rounded-2xl text-left transition-all active:scale-95 group shadow-sm hover:shadow-md">
+                        <div class="text-2xl">🛵</div>
+                        <div class="text-xs font-bold text-slate-900 group-hover:text-emerald-700 mt-1">Swiggy Delivery</div>
+                        <div class="text-[10px] text-slate-500">Plot 79 • Instant Alert</div>
+                    </button>
+
+                    <button onclick="triggerScenario('amazon')" class="scenario-btn p-3.5 bg-white hover:bg-teal-50/80 border border-slate-200 hover:border-teal-400 rounded-2xl text-left transition-all active:scale-95 group shadow-sm hover:shadow-md">
+                        <div class="text-2xl">📦</div>
+                        <div class="text-xs font-bold text-slate-900 group-hover:text-teal-700 mt-1">Amazon Courier</div>
+                        <div class="text-[10px] text-slate-500">Plot 14 • Leave at Gate</div>
+                    </button>
+
+                    <button onclick="triggerScenario('cab')" class="scenario-btn p-3.5 bg-white hover:bg-amber-50/80 border border-slate-200 hover:border-amber-400 rounded-2xl text-left transition-all active:scale-95 group shadow-sm hover:shadow-md">
+                        <div class="text-2xl">🚕</div>
+                        <div class="text-xs font-bold text-slate-900 group-hover:text-amber-700 mt-1">Uber / Cab Entry</div>
+                        <div class="text-[10px] text-slate-500">Plot 5 • Deny Scenario</div>
+                    </button>
+
+                    <button onclick="triggerScenario('kiosk')" class="scenario-btn p-3.5 bg-white hover:bg-sky-50/80 border border-slate-200 hover:border-sky-400 rounded-2xl text-left transition-all active:scale-95 group shadow-sm hover:shadow-md">
+                        <div class="text-2xl">🌙</div>
+                        <div class="text-xs font-bold text-slate-900 group-hover:text-sky-700 mt-1">Night QR Kiosk</div>
+                        <div class="text-[10px] text-slate-500">Guardless Self-Checkin</div>
+                    </button>
+
+                    <button onclick="triggerScenario('pass')" class="scenario-btn p-3.5 bg-white hover:bg-rose-50/80 border border-slate-200 hover:border-rose-400 rounded-2xl text-left transition-all active:scale-95 group shadow-sm hover:shadow-md">
+                        <div class="text-2xl">🔑</div>
+                        <div class="text-xs font-bold text-slate-900 group-hover:text-rose-700 mt-1">Fast-Track Pass</div>
+                        <div class="text-[10px] text-slate-500">Passcode '1177' (2s)</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Toast Bar -->
+        <div id="demoToast" class="hidden rounded-2xl p-4 text-center font-bold text-xs shadow-lg transition-all"></div>
+
+        <!-- ================= DUAL-SCREEN LIVE WORKSPACE (CLEAN DEVICE FRAMES) ================= -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+            <!-- LEFT SCREEN: Gate Guard Cabin Tablet (7 Cols) -->
+            <div class="lg:col-span-7 bg-white border border-slate-200/90 rounded-3xl p-4 md:p-5 device-shadow space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <h2 class="text-sm font-bold text-slate-900">Screen 1: Guard Cabin Tablet (PWA)</h2>
+                        <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full font-bold border border-emerald-200">Hindi Voice • 2-Tap</span>
+                    </div>
+                    <a href="/guard" target="_blank" class="text-xs text-emerald-600 hover:text-emerald-700 font-bold flex items-center gap-1">
+                        <span>Open Fullscreen</span>
+                        <span>↗</span>
+                    </a>
+                </div>
+
+                <!-- Guard iframe -->
+                <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 h-[580px] relative shadow-inner">
+                    <iframe id="guardFrame" src="/guard" class="w-full h-full border-0"></iframe>
+                </div>
+            </div>
+
+            <!-- RIGHT SCREEN: Resident WhatsApp Smartphone (5 Cols) -->
+            <div class="lg:col-span-5 bg-white border border-slate-200/90 rounded-3xl p-4 md:p-5 device-shadow space-y-3">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-teal-500"></span>
+                        <h2 class="text-sm font-bold text-slate-900">Screen 2: Resident WhatsApp Phone</h2>
+                    </div>
+                    <a href="/whatsapp" target="_blank" class="text-xs text-teal-600 hover:text-teal-700 font-bold flex items-center gap-1">
+                        <span>Open Fullscreen</span>
+                        <span>↗</span>
+                    </a>
+                </div>
+
+                <!-- Resident WhatsApp iframe -->
+                <div class="rounded-2xl overflow-hidden border border-slate-200 bg-[#0b141a] h-[580px] relative shadow-inner">
+                    <iframe id="waFrame" src="/whatsapp" class="w-full h-full border-0"></iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Direct Touchpoints & Township Directory (Light & Welcoming) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+            <!-- Card 1: Live Apps Quick Access -->
+            <div class="bg-white border border-slate-200/90 rounded-3xl p-5 space-y-3 device-shadow">
+                <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <span class="text-emerald-600 text-base">📱</span>
+                    <span>Live Standalone Applications</span>
+                </h3>
+                <div class="space-y-2 text-xs">
+                    <a href="/guard" target="_blank" class="block p-3 rounded-2xl bg-slate-50 hover:bg-emerald-50/70 border border-slate-200/80 hover:border-emerald-300 transition-all font-semibold text-slate-800 flex items-center justify-between">
+                        <span>👮 Guard Lite App (Hindi/Voice)</span>
+                        <span class="text-slate-400 font-mono">/guard ↗</span>
+                    </a>
+                    <a href="/kiosk" target="_blank" class="block p-3 rounded-2xl bg-slate-50 hover:bg-teal-50/70 border border-slate-200/80 hover:border-teal-300 transition-all font-semibold text-slate-800 flex items-center justify-between">
+                        <span>🌙 Unguarded Night QR Kiosk</span>
+                        <span class="text-slate-400 font-mono">/kiosk ↗</span>
+                    </a>
+                    <a href="/whatsapp" target="_blank" class="block p-3 rounded-2xl bg-slate-50 hover:bg-sky-50/70 border border-slate-200/80 hover:border-sky-300 transition-all font-semibold text-slate-800 flex items-center justify-between">
+                        <span>💬 Resident WhatsApp Simulator</span>
+                        <span class="text-slate-400 font-mono">/whatsapp ↗</span>
+                    </a>
+                    <a href="/admin" target="_blank" class="block p-3 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-200/80 transition-all font-semibold text-slate-800 flex items-center justify-between">
+                        <span>🗺️ Township Map & Khata Admin</span>
+                        <span class="text-slate-400 font-mono">/admin ↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: Print & Onboarding -->
+            <div class="bg-white border border-slate-200/90 rounded-3xl p-5 space-y-3 device-shadow">
+                <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                    <span class="text-teal-600 text-base">🏷️</span>
+                    <span>Gate Physical Boards & Resident Sign-Up</span>
+                </h3>
+                <div class="space-y-2 text-xs">
+                    <a href="/print-board" target="_blank" class="block p-3 rounded-2xl bg-slate-50 hover:bg-teal-50/70 border border-slate-200/80 hover:border-teal-300 transition-all font-semibold text-slate-800 flex items-center justify-between">
+                        <span>🖨️ Print-Ready Gate QR Sunboard</span>
+                        <span class="text-slate-400 font-mono">/print-board ↗</span>
+                    </a>
+                    <a href="/join" target="_blank" class="block p-3 rounded-2xl bg-slate-50 hover:bg-emerald-50/70 border border-slate-200/80 hover:border-emerald-300 transition-all font-semibold text-slate-800 flex items-center justify-between">
+                        <span>📝 Resident Self-Registration Portal</span>
+                        <span class="text-slate-400 font-mono">/join ↗</span>
+                    </a>
+                    <a href="/privacy" target="_blank" class="block p-3 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-200/80 transition-all font-semibold text-slate-800 flex items-center justify-between">
+                        <span>🔒 Live Privacy Policy (Meta Review)</span>
+                        <span class="text-slate-400 font-mono">/privacy ↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: Builder Proposal Deck (Warm & Welcoming) -->
+            <div class="bg-gradient-to-br from-emerald-50 via-teal-50/50 to-white border-2 border-emerald-300/80 rounded-3xl p-5 space-y-3 flex flex-col justify-between device-shadow">
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                        <span class="text-amber-500 text-base">📊</span>
+                        <span>Builder Proposal Presentation</span>
+                    </h3>
+                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                        Complete 10-slide pitch deck designed in a positive, bright theme. Details Phase 1 instant deployment, Phase 2 Khata billing, Phase 3 cluster pooling, and builder requirements.
+                    </p>
+                </div>
+                <div class="space-y-2 pt-3">
+                    <a href="/proposal" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 transition-all active:scale-95">
+                        <span>View Interactive Slides</span>
+                        <span>→</span>
+                    </a>
+                    <a href="/download/proposal-deck" class="w-full py-2.5 bg-white hover:bg-slate-50 text-emerald-700 border border-emerald-300 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        <span>Download .PPTX File</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="border-t border-slate-200 py-4 px-4 text-center text-xs text-slate-400 bg-white/60">
+        VilaDesk • Next-Gen Smart Township OS • Defined World City, Jaipur • Live 24x7 Demo
+    </footer>
+
+    <script>
+        function showToast(msg, classes) {
+            const el = document.getElementById('demoToast');
+            el.className = `rounded-2xl p-4 text-center font-bold text-xs shadow-lg transition-all ${classes}`;
+            el.innerHTML = msg;
+            el.classList.remove('hidden');
+            setTimeout(() => el.classList.add('hidden'), 5000);
+        }
+
+        async function triggerScenario(type) {
+            const guardFrame = document.getElementById('guardFrame');
+            const waFrame = document.getElementById('waFrame');
+
+            if (type === 'swiggy') {
+                showToast("🛵 Swiggy Delivery सिमुलेशन: Plot 79 (Nishant Gupta) के लिए अनुरोध भेजा गया...", "bg-emerald-100 text-emerald-900 border border-emerald-300");
+                try {
+                    const res = await fetch('/api/visitors/request', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            plot_number: '79',
+                            visitor_name: 'Mahesh Swiggy',
+                            visitor_phone: '9829011079',
+                            visitor_type: 'delivery',
+                            service_company: 'Swiggy/Zomato',
+                            entry_channel: 'demo_simulation'
+                        })
+                    });
+                    const d = await res.json();
+                    if (d.success) {
+                        showToast(`✅ WhatsApp अलर्ट भेजा गया! दाएँ स्क्रीन (WhatsApp) पर [Allow Entry] बटन दबाएं।`, "bg-emerald-600 text-white");
+                        waFrame.src = '/whatsapp';
+                    }
+                } catch(e) {}
+
+            } else if (type === 'amazon') {
+                showToast("📦 Amazon Parcel सिमुलेशन: Plot 14 के लिए पार्सल अनुरोध...", "bg-teal-100 text-teal-900 border border-teal-300");
+                try {
+                    await fetch('/api/visitors/request', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            plot_number: '14',
+                            visitor_name: 'Ramesh Amazon Delivery',
+                            visitor_phone: '9829011014',
+                            visitor_type: 'delivery',
+                            service_company: 'Amazon/Courier',
+                            entry_channel: 'demo_simulation'
+                        })
+                    });
+                    waFrame.src = '/whatsapp';
+                    showToast(`✅ Amazon पार्सल अलर्ट भेजा गया! [Leave at Gate] का परीक्षण करें।`, "bg-teal-600 text-white");
+                } catch(e) {}
+
+            } else if (type === 'cab') {
+                showToast("🚕 Uber Cab सिमुलेशन: Plot 5 के लिए कैब एंट्री...", "bg-amber-100 text-amber-900 border border-amber-300");
+                try {
+                    await fetch('/api/visitors/request', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            plot_number: '5',
+                            visitor_name: 'Suresh Uber Driver (RJ14 TA 8899)',
+                            visitor_phone: '9829011005',
+                            visitor_type: 'cab',
+                            service_company: 'Ola/Uber',
+                            entry_channel: 'demo_simulation'
+                        })
+                    });
+                    waFrame.src = '/whatsapp';
+                    showToast(`✅ Uber अलर्ट भेजा गया! [Deny] दबाकर अस्वीकृति का परीक्षण करें।`, "bg-amber-600 text-white");
+                } catch(e) {}
+
+            } else if (type === 'kiosk') {
+                showToast("🌙 Kiosk मोड: नए टैब में नाइट कियोस्क खुल रहा है...", "bg-sky-100 text-sky-900 border border-sky-300");
+                window.open('/kiosk', '_blank');
+
+            } else if (type === 'pass') {
+                showToast("🔑 Fast-Track Pass: 4-डिजिट पासकोड '1177' का सत्यापन किया जा रहा है...", "bg-rose-100 text-rose-900 border border-rose-300");
+                try {
+                    const res = await fetch('/api/passes/verify', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({ pass_code: '1177' })
+                    });
+                    const d = await res.json();
+                    if (d.success) {
+                        showToast(`🎉 पासकोड 1177 सत्यापित! Plot ${d.plot_number} (${d.resident_name}) के लिए गेट खोला गया।`, "bg-emerald-600 text-white font-extrabold");
+                        guardFrame.src = '/guard';
+                    } else {
+                        showToast(`Pass response: ${d.error || 'Verified'}`, "bg-slate-100 text-slate-800");
+                    }
+                } catch(e) {}
+            }
+        }
+    </script>
+</body>
+</html>

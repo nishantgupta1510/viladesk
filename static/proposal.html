@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VilaDesk • Builder Proposal Deck (Smart Township OS)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .slide { display: none; }
+        .slide.active { display: flex; }
+        .glass-light { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); }
+        .card-shadow { box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07), 0 0 0 1px rgba(226, 232, 240, 0.8); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-emerald-50/30 to-teal-50/30 text-slate-800 min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-emerald-500 selection:text-white">
+
+    <!-- Top Floating Navigation Bar (Light & Fresh) -->
+    <header class="sticky top-0 z-50 glass-light border-b border-slate-200/80 px-4 md:px-8 py-3.5 flex items-center justify-between shadow-sm">
+        <div class="flex items-center gap-3">
+            <a href="/demo" class="flex items-center gap-2.5 font-extrabold text-base tracking-tight hover:opacity-85 transition-all">
+                <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-white font-black text-lg shadow-md shadow-emerald-500/20">V</span>
+                <span class="text-slate-900 font-extrabold">VilaDesk</span>
+            </a>
+            <span class="text-xs bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-bold border border-emerald-200 hidden sm:inline-block">
+                🌱 Builder Proposal Deck • 10 Slides
+            </span>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+            <span id="slideIndicator" class="text-xs font-mono font-bold text-slate-600 px-2.5 py-1 bg-white rounded-lg border border-slate-200 shadow-sm">
+                Slide 1 / 10
+            </span>
+
+            <a href="/download/proposal-deck" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md shadow-emerald-600/20 transition-all active:scale-95">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span>Download PPTX</span>
+            </a>
+
+            <a href="/demo" class="px-3.5 py-1.5 bg-white hover:bg-slate-50 text-emerald-700 border border-emerald-200 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all">
+                <span>🚀 Live Demo Hub</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Presentation Viewport (Light, Modern & Elevated) -->
+    <main class="flex-1 flex items-center justify-center p-3 md:p-6 lg:p-8">
+        <div class="w-full max-w-6xl aspect-[16/9] min-h-[540px] md:min-h-[620px] bg-white border border-slate-200/90 rounded-3xl card-shadow relative overflow-hidden flex flex-col justify-between p-6 md:p-12 transition-all">
+
+            <!-- SLIDE 1: TITLE SLIDE (Fresh, Luminous, Positive Vibe) -->
+            <div class="slide active flex-col justify-between h-full" data-index="1">
+                <div class="bg-gradient-to-br from-emerald-50/70 via-teal-50/40 to-white border border-emerald-200/70 rounded-3xl p-8 md:p-10 space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-emerald-300 text-emerald-700 text-xs font-bold tracking-wider uppercase shadow-sm">
+                        <span>☀️ Smart Township Operating System</span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        VilaDesk
+                    </h1>
+                    <p class="text-xl md:text-2xl text-teal-700 font-bold">
+                        Gate Security, WhatsApp Approvals & Plotted Khata OS
+                    </p>
+                    <p class="text-sm md:text-base text-slate-600 max-w-2xl leading-relaxed pt-2">
+                        Purpose-built for Villa Societies, Micro-Townships & Plotted Developments (10–200 Units).
+                        Delight your residents with 100% WhatsApp-native approvals: Zero app downloads, zero capex hardware.
+                    </p>
+                </div>
+
+                <div class="border-t border-slate-100 pt-5 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+                    <div>
+                        <p class="font-bold text-slate-800">Prepared For: Real Estate Developers & Villa Promoters</p>
+                        <p>Target Deployment: Defined World City & Tier-2 India</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-emerald-700 font-mono font-bold">⏱ Ready for 24-Hour Deployment</p>
+                        <p>November 2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: THE PROBLEM (Light Theme) -->
+            <div class="slide flex-col justify-between h-full" data-index="2">
+                <div>
+                    <span class="text-xs font-bold text-amber-600 tracking-wider uppercase">Market Gap & Reality</span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">The Plotted Township Paradox</h2>
+                    <p class="text-sm text-slate-500 mt-1">Why legacy high-rise apartment apps (MyGate / NoBrokerHood) fail in horizontal developments.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 space-y-2 hover:border-emerald-300 transition-all">
+                            <div class="text-2xl">🏢 ➡️ 🏡</div>
+                            <h3 class="text-base font-bold text-slate-900">Horizontal vs Vertical Layout</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                High-rise apps expect 500+ dense apartments. Villa townships have low density, long avenues, and 20–100 spread-out plots where guards struggle with complex app navigation.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 space-y-2 hover:border-amber-300 transition-all">
+                            <div class="text-2xl">🌱 40-60% Vacant</div>
+                            <h3 class="text-base font-bold text-slate-900">The Vacant Plot Owner Reality</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                In plotted developments, 40%–60% are vacant investor plots. An investor living elsewhere will <strong>never download a 120MB app</strong> for land they visit twice a year.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 space-y-2 hover:border-rose-300 transition-all">
+                            <div class="text-2xl">💸 ₹3–5 Lakh Capex</div>
+                            <h3 class="text-base font-bold text-slate-900">Heavy Hardware & Guard Attrition</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Boom barriers, RFID scanners & server racks cost ₹3–5 Lakhs upfront plus ₹50k/yr AMC. Gate guards change every 2 months and struggle with English software.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-5 space-y-2 hover:border-teal-300 transition-all">
+                            <div class="text-2xl">🚛 Construction Traffic</div>
+                            <h3 class="text-base font-bold text-slate-900">Unmonitored Construction Movement</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Plotted townships face 3–5 years of active villa construction. Cement trucks, sand dumpers, and daily labor enter without verification, leading to material theft.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[11px] text-slate-400 font-mono">Slide 2 / 10 • Problem Statement</div>
+            </div>
+
+            <!-- SLIDE 3: VALUE PROPOSITION (Light & High-Vibe) -->
+            <div class="slide flex-col justify-between h-full" data-index="3">
+                <div>
+                    <span class="text-xs font-bold text-emerald-600 tracking-wider uppercase">The VilaDesk Breakthrough</span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">Zero-App, WhatsApp-Native Architecture</h2>
+                    <p class="text-sm text-slate-500 mt-1">100% adoption on Day 1 because residents and plot owners already live on WhatsApp.</p>
+
+                    <div class="space-y-4 mt-6">
+                        <div class="bg-gradient-to-r from-emerald-50/70 to-white border-2 border-emerald-300 rounded-2xl p-5 flex items-start gap-4 shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xl shrink-0 shadow-md shadow-emerald-500/20">1</div>
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">100% Resident & Investor Adoption (Zero App Download)</h3>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                    No app to download, no passwords to remember. Interactive approval cards arrive directly inside WhatsApp with 1-tap buttons: <code>[✅ Allow Entry]</code>, <code>[❌ Deny]</code>, <code>[📦 Leave at Gate]</code>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-teal-50/70 to-white border-2 border-teal-300 rounded-2xl p-5 flex items-start gap-4 shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold text-xl shrink-0 shadow-md shadow-teal-500/20">2</div>
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">Dual-Mode Gate Operations (Day & Night)</h3>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                    <strong>Guarded Mode (Day):</strong> Guard Lite PWA with Hindi voice speech-to-text ("Plot 79 Courier") and 2-tap delivery selection.<br/>
+                                    <strong>Unguarded Kiosk Mode (Night):</strong> Weatherproof QR sign for automated visitor self-check-in with digital clearance tokens.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-amber-50/70 to-white border-2 border-amber-300 rounded-2xl p-5 flex items-start gap-4 shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-xl shrink-0 shadow-md shadow-amber-500/20">3</div>
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">Zero Capex Hardware & 24-Hour Deployment</h3>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                    Runs on any existing ₹6,000 Android smartphone or tablet in the guard cabin. Requires no motorized boom barriers or rewiring. Live in under 24 hours.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[11px] text-slate-400 font-mono">Slide 3 / 10 • Core Innovation</div>
+            </div>
+
+            <!-- SLIDE 4: PHASE 1 QUICK DEPLOYMENT -->
+            <div class="slide flex-col justify-between h-full" data-index="4">
+                <div>
+                    <span class="text-xs font-bold text-emerald-600 tracking-wider uppercase">Phase 1 • Instant Deployment (&lt; 24 Hours)</span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">Gate Security Suite (Ready Today)</h2>
+                    <p class="text-sm text-slate-500 mt-1">Complete gate automation ready for immediate live rollout in your township.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-emerald-500">
+                            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                <span>👮 Guard Lite PWA (Hindi / Voice)</span>
+                            </h3>
+                            <ul class="text-xs text-slate-600 space-y-1">
+                                <li>• 2-Tap fast selector for Swiggy, Zomato, Amazon, Uber & Guests</li>
+                                <li>• Hindi speech recognition: speak <em>"Plot 79 Courier"</em> to auto-fill</li>
+                                <li>• Audio chime + Text-to-Speech Hindi spoken confirmation</li>
+                                <li>• "Currently Inside" carousel with 1-tap exit checkout</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-teal-500">
+                            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                <span>📱 Multi-Family WhatsApp Dispatch</span>
+                            </h3>
+                            <ul class="text-xs text-slate-600 space-y-1">
+                                <li>• Meta Cloud API interactive cards sent in &lt; 2 seconds</li>
+                                <li>• 3 Action Buttons: <code>[Allow]</code> <code>[Deny]</code> <code>[Leave at Gate]</code></li>
+                                <li>• Simultaneous dispatch to Owner, Spouse & Family members</li>
+                                <li>• Direct <code>📞 Call Guard Cabin</code> link in message body</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-amber-500">
+                            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                <span>🌙 Unguarded Night QR Kiosk</span>
+                            </h3>
+                            <ul class="text-xs text-slate-600 space-y-1">
+                                <li>• Self-service visitor check-in when guard is away or off-duty</li>
+                                <li>• Mandatory 10-digit visitor phone verification</li>
+                                <li>• Live polling with full-screen green clearance pass</li>
+                                <li>• Print-ready A4/Sunboard gate signage included</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-sky-500">
+                            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                <span>🔑 Fast-Track Guest Passcodes</span>
+                            </h3>
+                            <ul class="text-xs text-slate-600 space-y-1">
+                                <li>• Residents generate 4-digit guest codes for party/family visits</li>
+                                <li>• Guard enters 4 digits for instant 1-second gate clearance</li>
+                                <li>• 1-Tap <code>📞 Call Resident</code> button if resident is away</li>
+                                <li>• Live digital event audit logs & history exportable to Excel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[11px] text-slate-400 font-mono">Slide 4 / 10 • Phase 1 Capabilities</div>
+            </div>
+
+            <!-- SLIDE 5: BUILDER REQUIREMENTS (Light & Action-Oriented) -->
+            <div class="slide flex-col justify-between h-full" data-index="5">
+                <div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-amber-600 tracking-wider uppercase">Onboarding Checklist</span>
+                            <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">What We Need From You to Deploy Phase 1</h2>
+                        </div>
+                        <span class="text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full border border-emerald-300">
+                            ⏱ 24-Hour Go-Live
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div class="bg-white border-2 border-teal-200 rounded-2xl p-4 space-y-2 shadow-sm">
+                            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold">1</span>
+                                <span>Township Master Plot Layout & Inventory</span>
+                            </h3>
+                            <p class="text-xs text-slate-500">Excel sheet, CAD, or PDF containing:</p>
+                            <ul class="text-xs text-slate-600 space-y-1 pl-4 list-disc">
+                                <li>Plot numbers (e.g. Plot 1 to 200) and plot areas in sq. yards.</li>
+                                <li>Status: Occupied Villa, Vacant Plot, or Construction Site.</li>
+                                <li>Primary resident/investor name and 10-digit mobile number.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white border-2 border-emerald-200 rounded-2xl p-4 space-y-2 shadow-sm">
+                            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">2</span>
+                                <span>Gate Cabin Smartphone or Tablet</span>
+                            </h3>
+                            <p class="text-xs text-slate-500">Standard budget mobile device:</p>
+                            <ul class="text-xs text-slate-600 space-y-1 pl-4 list-disc">
+                                <li>1 Android phone (Android 10+, screen &gt;= 6.0") or 8"–10" tablet.</li>
+                                <li>1 Basic 4G SIM connection (Jio/Airtel ₹150/mo, data &lt; 1 GB/mo).</li>
+                                <li>Standard 5V wall charger / power point in cabin.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white border-2 border-amber-200 rounded-2xl p-4 space-y-2 shadow-sm">
+                            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold">3</span>
+                                <span>Gate Physical Access Policy</span>
+                            </h3>
+                            <p class="text-xs text-slate-500">Choose between two operational modes:</p>
+                            <ul class="text-xs text-slate-600 space-y-1 pl-4 list-disc">
+                                <li><strong>Option A (Zero-Hardware):</strong> Guard verifies green clearance screen.</li>
+                                <li><strong>Option B (Recommended ₹2,500 Retrofit):</strong> 12V electric rim lock on wicket gate triggered automatically when resident approves.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white border-2 border-sky-200 rounded-2xl p-4 space-y-2 shadow-sm">
+                            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-xs font-bold">4</span>
+                                <span>Builder / RWA Point of Contact</span>
+                            </h3>
+                            <p class="text-xs text-slate-500">For 30-minute kickoff and handover:</p>
+                            <ul class="text-xs text-slate-600 space-y-1 pl-4 list-disc">
+                                <li>1 Designated site supervisor for initial WhatsApp broadcast.</li>
+                                <li>30-Minute guard training conducted on-site in Hindi by VilaDesk.</li>
+                                <li>Gate cabin mobile number for resident caller ID.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[11px] text-slate-400 font-mono">Slide 5 / 10 • Builder Prerequisites</div>
+            </div>
+
+            <!-- SLIDE 6: PHASE 2 PLOTTED KHATA -->
+            <div class="slide flex-col justify-between h-full" data-index="6">
+                <div>
+                    <span class="text-xs font-bold text-teal-600 tracking-wider uppercase">Phase 2 • Month 2–3</span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">Plotted Khata & Automated Maintenance Billing</h2>
+                    <p class="text-sm text-slate-500 mt-1">Fair, per-sq-yard billing tailored to the horizontal reality of villa townships.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-emerald-500">
+                            <h3 class="text-sm font-bold text-slate-900">📐 Per-Sq-Yard Billing Engine</h3>
+                            <p class="text-xs text-slate-600">
+                                Flat flat-rates don't work in villa layouts. Automated differential pricing:
+                            </p>
+                            <ul class="text-xs text-slate-500 space-y-0.5 pl-3 list-disc">
+                                <li>Occupied Villas: ₹2.50 / sq.yd (Full services)</li>
+                                <li>Vacant Investor Plots: ₹1.00 / sq.yd (Security/road upkeep)</li>
+                                <li>Under Construction: ₹3.50 / sq.yd (Road wear surcharge)</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-teal-500">
+                            <h3 class="text-sm font-bold text-slate-900">💳 1-Click WhatsApp UPI Payments</h3>
+                            <p class="text-xs text-slate-600">
+                                Invoices delivered directly on WhatsApp with dynamic UPI pay-links (Google Pay, PhonePe, Paytm).
+                            </p>
+                            <ul class="text-xs text-slate-500 space-y-0.5 pl-3 list-disc">
+                                <li>Zero gateway convenience fees (direct bank settlement)</li>
+                                <li>Instant digital receipt and ledger reconciliation</li>
+                                <li>Automated polite WhatsApp payment reminders</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-amber-500">
+                            <h3 class="text-sm font-bold text-slate-900">📊 Public Transparency Cashbook</h3>
+                            <p class="text-xs text-slate-600">
+                                Real-time audited financial ledger accessible to Builder and RWA committee:
+                            </p>
+                            <ul class="text-xs text-slate-500 space-y-0.5 pl-3 list-disc">
+                                <li>Live collections vs outstanding defaulters</li>
+                                <li>Digitized expense vouchers (DG diesel, guard salaries)</li>
+                                <li>Eliminates resident suspicion during RWA handover</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-sky-500">
+                            <h3 class="text-sm font-bold text-slate-900">🚛 Construction Material Gate Passes</h3>
+                            <p class="text-xs text-slate-600">
+                                Stop material theft and unauthorized dumping:
+                            </p>
+                            <ul class="text-xs text-slate-500 space-y-0.5 pl-3 list-disc">
+                                <li>Digital gate passes for cement, sand, brick & marble trucks</li>
+                                <li>Daily contractor labor headcount logging (ID badge scan)</li>
+                                <li>Auto-notifies plot owner when trucks enter their plot</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[11px] text-slate-400 font-mono">Slide 6 / 10 • Phase 2 Khata Finance</div>
+            </div>
+
+            <!-- SLIDE 7: PHASE 3 CLUSTER UTILITY -->
+            <div class="slide flex-col justify-between h-full" data-index="7">
+                <div>
+                    <span class="text-xs font-bold text-sky-600 tracking-wider uppercase">Phase 3 • Month 3–6</span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">Cluster Utility Ecosystem & Amenity OS</h2>
+                    <p class="text-sm text-slate-500 mt-1">Ajmer Road corridor shared services and smart infrastructure.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-emerald-500">
+                            <h3 class="text-sm font-bold text-slate-900">🛠️ Cluster Handyman Pooling</h3>
+                            <p class="text-xs text-slate-600">
+                                Individual 20–50 villa townships cannot afford full-time electricians or plumbers. VilaDesk pools verified technicians across 3–4 neighboring societies on the corridor, reducing resident costs by 40%.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-sky-500">
+                            <h3 class="text-sm font-bold text-slate-900">💧 Water Tanker Delivery Tracking</h3>
+                            <p class="text-xs text-slate-600">
+                                Peripheral Jaipur townships depend on private water tankers. Gate guards log tanker capacity (5,000L / 10,000L), TDS water quality, and vendor ID to prevent phantom billing.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-amber-500">
+                            <h3 class="text-sm font-bold text-slate-900">🏊 Clubhouse & Amenity Access</h3>
+                            <p class="text-xs text-slate-600">
+                                QR digital access for swimming pool, gym, banquet hall & park reservations. Defaulters are automatically restricted from amenity booking until maintenance dues are cleared.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1.5 border-l-4 border-l-indigo-500">
+                            <h3 class="text-sm font-bold text-slate-900">📷 Optional CCTV & ANPR Integration</h3>
+                            <p class="text-xs text-slate-600">
+                                Automatic Number Plate Recognition (ANPR) camera retrofit at main gate. Pre-registered resident cars are recognized in 1.5 seconds without RFID stickers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[11px] text-slate-400 font-mono">Slide 7 / 10 • Phase 3 Cluster Ecosystem</div>
+            </div>
+
+            <!-- SLIDE 8: BUILDER ROI (Bright & Positive) -->
+            <div class="slide flex-col justify-between h-full" data-index="8">
+                <div>
+                    <span class="text-xs font-bold text-emerald-600 tracking-wider uppercase">Business Impact</span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">Why Leading Builders Choose VilaDesk</h2>
+                    <p class="text-sm text-slate-500 mt-1">Measurable commercial upside for your real estate development.</p>
+
+                    <div class="space-y-3 mt-6">
+                        <div class="bg-emerald-50/70 border border-emerald-300 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">📈 ₹150–₹300 / sq.yd Sales Price Premium</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">Marketing as a 'Smart App-Gated Township' increases plot sales velocity by 35% and attracts premium NRI/investor buyers.</p>
+                            </div>
+                            <span class="text-emerald-800 font-bold text-sm px-3 py-1 bg-white rounded-xl border border-emerald-300 shadow-sm">+35% Velocity</span>
+                        </div>
+
+                        <div class="bg-teal-50/70 border border-teal-300 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">🤝 Dispute-Free RWA Handover</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">The #1 cause of builder-buyer disputes is maintenance fund transparency. VilaDesk's audited Khata eliminates all friction.</p>
+                            </div>
+                            <span class="text-teal-800 font-bold text-sm px-3 py-1 bg-white rounded-xl border border-teal-300 shadow-sm">100% Audit</span>
+                        </div>
+
+                        <div class="bg-amber-50/70 border border-amber-300 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">🛡️ Eliminates Guard Attrition & Training Woes</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">A brand new gate guard learns the 2-tap Hindi voice interface in under 5 minutes without needing English literacy.</p>
+                            </div>
+                            <span class="text-amber-800 font-bold text-sm px-3 py-1 bg-white rounded-xl border border-amber-300 shadow-sm">&lt; 5 Min Training</span>
+                        </div>
+
+                        <div class="bg-sky-50/70 border border-sky-300 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">💡 Zero Capex & Ultra-Low Total Cost</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">No expensive boom barriers to fix. No recurring server AMC. Fraction of the cost of high-rise apartment apps.</p>
+                            </div>
+                            <span class="text-sky-800 font-bold text-sm px-3 py-1 bg-white rounded-xl border border-sky-300 shadow-sm">₹0 Capex</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[11px] text-slate-400 font-mono">Slide 8 / 10 • Builder ROI</div>
+            </div>
+
+            <!-- SLIDE 9: PILOT OFFER (Light & Warm) -->
+            <div class="slide flex-col justify-between h-full" data-index="9">
+                <div>
+                    <span class="text-xs font-bold text-emerald-600 tracking-wider uppercase">Engagement Model</span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">30-Day Zero-Risk Live Pilot</h2>
+                    <p class="text-sm text-slate-500 mt-1">Test Phase 1 live at your township gate with zero upfront investment.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-emerald-50/70 border-2 border-emerald-400 rounded-3xl p-6 space-y-3 shadow-sm">
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-800 bg-white px-3 py-1 rounded-full border border-emerald-300 shadow-sm">
+                                🎯 30-Day Free Trial
+                            </span>
+                            <h3 class="text-xl font-bold text-slate-900">Zero Financial Commitment</h3>
+                            <ul class="text-xs text-slate-700 space-y-2">
+                                <li>✓ 100% Free 30-Day Live Trial at your main entry gate</li>
+                                <li>✓ Complete Phase 1 setup deployed within 24 hours</li>
+                                <li>✓ On-site guard training in Hindi conducted by our team</li>
+                                <li>✓ Laminated weatherproof QR gate boards provided free</li>
+                                <li>✓ Experience real resident feedback with zero risk</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white border-2 border-slate-200 rounded-3xl p-6 space-y-3 shadow-sm">
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-teal-800 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
+                                💼 Transparent Commercials
+                            </span>
+                            <h3 class="text-xl font-bold text-slate-900">Simple Per-Plot Subscription</h3>
+                            <ul class="text-xs text-slate-600 space-y-2">
+                                <li>• Flat per-plot monthly subscription (fraction of legacy apps)</li>
+                                <li>• Heavily discounted rate for vacant plots to protect builder holding costs</li>
+                                <li>• All-inclusive: WhatsApp Cloud API, cloud servers & local Jaipur support</li>
+                                <li>• Flexible transition from Builder account to RWA when ready</li>
+                                <li>• No hardware lock-in: export all data anytime in 1 click</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[11px] text-slate-400 font-mono">Slide 9 / 10 • Commercials</div>
+            </div>
+
+            <!-- SLIDE 10: 24X7 DEMO & NEXT STEPS -->
+            <div class="slide flex-col justify-between h-full" data-index="10">
+                <div>
+                    <span class="text-xs font-bold text-emerald-600 tracking-wider uppercase">Experience It Now</span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">24x7 Live Interactive Demo Environment</h2>
+                    <p class="text-sm text-slate-500 mt-1">Try the live system right now on your smartphone or laptop.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div class="bg-gradient-to-br from-emerald-50/70 to-white border-2 border-emerald-300 rounded-2xl p-5 space-y-2.5 shadow-sm">
+                            <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                                <span>🚀 Live Interactive Demo Hub</span>
+                            </h3>
+                            <p class="text-xs text-slate-600">
+                                Features dual-screen simulation of the Guard PWA side-by-side with the Resident WhatsApp phone. Trigger 1-click test deliveries (Swiggy, Amazon, Cab).
+                            </p>
+                            <a href="/demo" class="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-emerald-600/20">
+                                <span>Launch 24x7 Demo Hub</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+
+                        <div class="bg-white border-2 border-slate-200 rounded-2xl p-5 space-y-2.5 shadow-sm">
+                            <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                                <span>📋 3 Simple Steps to Deploy</span>
+                            </h3>
+                            <ol class="text-xs text-slate-600 space-y-1.5 list-decimal pl-4">
+                                <li><strong>Share Plot Directory:</strong> Send plot layout Excel sheet or CAD.</li>
+                                <li><strong>Hand Over Guard Phone:</strong> Standard Android phone with 4G SIM.</li>
+                                <li><strong>Go-Live in 24 Hours:</strong> We mount the QR board & train guards on-site!</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+                        <span class="text-slate-600 font-medium">Download the presentation file for your boardroom meeting:</span>
+                        <a href="/download/proposal-deck" class="px-4 py-1.5 bg-white hover:bg-slate-50 text-emerald-700 border border-emerald-300 rounded-xl font-bold flex items-center gap-1.5 shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                            <span>Download VilaDesk_Builder_Proposal_Deck.pptx</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-[11px] text-slate-400 font-mono">Slide 10 / 10 • Next Steps</div>
+            </div>
+
+            <!-- Bottom Presentation Controls (Light Theme) -->
+            <div class="border-t border-slate-100 pt-4 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <button onclick="prevSlide()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-all active:scale-95 flex items-center gap-1">
+                        <span>← Previous</span>
+                    </button>
+                    <button onclick="nextSlide()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all active:scale-95 flex items-center gap-1 shadow-md shadow-emerald-600/20">
+                        <span>Next →</span>
+                    </button>
+                </div>
+
+                <!-- Slide Dots -->
+                <div class="hidden sm:flex items-center gap-1.5" id="slideDots">
+                    <!-- Injected via JS -->
+                </div>
+
+                <div class="text-[11px] text-slate-400 font-mono">
+                    Use <kbd class="px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded border border-slate-200">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded border border-slate-200">→</kbd> to navigate
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center text-xs text-slate-400 py-3">
+        VilaDesk • Next-Gen Smart Township OS • Confidential
+    </footer>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 10;
+
+        function updateSlide() {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            const activeSlide = document.querySelector(`.slide[data-index="${currentSlide}"]`);
+            if (activeSlide) activeSlide.classList.add('active');
+
+            document.getElementById('slideIndicator').textContent = `Slide ${currentSlide} / ${totalSlides}`;
+
+            // Update dots
+            document.querySelectorAll('#slideDots button').forEach((btn, idx) => {
+                if (idx + 1 === currentSlide) {
+                    btn.className = "w-6 h-2 rounded-full bg-emerald-600 transition-all";
+                } else {
+                    btn.className = "w-2 h-2 rounded-full bg-slate-300 hover:bg-slate-400 transition-all";
+                }
+            });
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        function goToSlide(idx) {
+            currentSlide = idx;
+            updateSlide();
+        }
+
+        // Initialize dots
+        const dotsContainer = document.getElementById('slideDots');
+        for (let i = 1; i <= totalSlides; i++) {
+            const btn = document.createElement('button');
+            btn.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(btn);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        updateSlide();
+    </script>
+</body>
+</html>
