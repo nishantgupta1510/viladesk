@@ -591,11 +591,11 @@ def create_deck(output_path):
     p_d1.font.color.rgb = C_TEXT_DARK
 
     demo_links = [
-        ("\n📱 Interactive Demo Showcase (Dual Phone Simulator):", "https://disciplines-goal-lemon-delight.trycloudflare.com/demo"),
-        ("👮 Live Guard Cabin PWA (Hindi / Voice / 2-Tap):", "https://disciplines-goal-lemon-delight.trycloudflare.com/guard"),
-        ("💬 Live Resident WhatsApp Experience:", "https://disciplines-goal-lemon-delight.trycloudflare.com/whatsapp"),
-        ("🌙 Live Unguarded Gate QR Kiosk:", "https://disciplines-goal-lemon-delight.trycloudflare.com/kiosk"),
-        ("🗺️ Live Township Map & Master Khata Admin:", "https://disciplines-goal-lemon-delight.trycloudflare.com/admin")
+        ("\n📱 Interactive Demo Showcase (Dual Phone Simulator):", "https://viladesk.onrender.com/demo"),
+        ("👮 Live Guard Cabin PWA (Hindi / Voice / 2-Tap):", "https://viladesk.onrender.com/guard"),
+        ("💬 Live Resident WhatsApp Experience:", "https://viladesk.onrender.com/whatsapp"),
+        ("🌙 Live Unguarded Gate QR Kiosk:", "https://viladesk.onrender.com/kiosk"),
+        ("🗺️ Live Township Map & Master Khata Admin:", "https://viladesk.onrender.com/admin")
     ]
 
     for label, url in demo_links:

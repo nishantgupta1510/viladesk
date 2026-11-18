@@ -2,7 +2,7 @@
   "society_id": "soc_jaipur_01",
   "society_name": "Defined World City",
   "locality": "Narsinghpura, Ajmer Road, NH-8, Jaipur, 302026",
-  "public_base_url": "http://localhost:8080",
+  "public_base_url": "https://viladesk.onrender.com",
   "guard_contact": {
     "phone": "8947051629",
     "name": "Gate 1 Guard Cabin",

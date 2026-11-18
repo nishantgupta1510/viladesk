@@ -7,6 +7,22 @@ A specialized management and security system designed for horizontal gated commu
 
 ---
 
+## 🌐 24x7 Live Cloud Deployment (Permanent)
+
+The system is permanently hosted and accessible 24x7 from any device:
+
+* **🚀 24x7 Interactive Demo Showcase:** [https://viladesk.onrender.com/demo](https://viladesk.onrender.com/demo) (or [https://viladesk.onrender.com/](https://viladesk.onrender.com/))
+* **📊 Builder Proposal Web Presentation:** [https://viladesk.onrender.com/proposal](https://viladesk.onrender.com/proposal)
+* **📥 Direct Download PowerPoint Deck (.pptx):** [https://viladesk.onrender.com/download/proposal-deck](https://viladesk.onrender.com/download/proposal-deck)
+* **👮 Guard Lite Cabin PWA (Hindi / Voice / 2-Tap):** [https://viladesk.onrender.com/guard](https://viladesk.onrender.com/guard)
+* **🌙 Unguarded Gate / Night QR Kiosk:** [https://viladesk.onrender.com/kiosk](https://viladesk.onrender.com/kiosk)
+* **💬 Resident WhatsApp Bot Simulator:** [https://viladesk.onrender.com/whatsapp](https://viladesk.onrender.com/whatsapp)
+* **🗺️ Township Master Layout & Khata Admin:** [https://viladesk.onrender.com/admin](https://viladesk.onrender.com/admin)
+* **🖨️ Weatherproof QR Gate Sign (Print Ready):** [https://viladesk.onrender.com/print-board](https://viladesk.onrender.com/print-board)
+* **🔔 Meta WhatsApp Webhook Endpoint:** `https://viladesk.onrender.com/api/whatsapp/webhook`
+
+---
+
 ## 🌟 What is Built in Phase 1
 
 1. **Horizontal Township Schema (`schema.sql` & `viladesk.db`)**:

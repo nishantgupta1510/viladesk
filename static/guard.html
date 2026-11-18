@@ -669,7 +669,7 @@
             // Check HTTPS for microphone voice API on mobile phones
             if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
                 fetch('/api/config').then(r => r.json()).then(d => {
-                    const tunnelUrl = (d.config && d.config.public_base_url) ? d.config.public_base_url + '/guard' : 'https://disciplines-goal-lemon-delight.trycloudflare.com/guard';
+                    const tunnelUrl = (d.config && d.config.public_base_url) ? d.config.public_base_url + '/guard' : 'https://viladesk.onrender.com/guard';
                     showAlert(`⚠️ माइक केवल HTTPS पर काम करता है। <a href="${tunnelUrl}" class="underline font-bold text-amber-300">यहाँ टैप करके HTTPS लिंक खोलें</a>`, "bg-amber-800 text-white font-bold p-3");
                 }).catch(() => {
                     showAlert(`⚠️ माइक केवल HTTPS पर काम करता है। कृपया सुरक्षित लिंक का उपयोग करें।`, "bg-amber-800 text-white font-bold p-3");
